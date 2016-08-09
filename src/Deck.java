@@ -1,35 +1,42 @@
 import java.util.Random;
+import java.util.Set;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 public class Deck {
+  
+ 
    private static ArrayList<Card> cards;
    private static ArrayList<Card> deck;
-   public Deck()
-	    {
-	    int index_1, index_2;
-	    cards = new ArrayList<Card>();
-        Random generator = new Random();
-        Card temp;
 
-        for (int a=0; a<4; a++)
-        {
-            for (int b=0; b<13; b++)
-             {
-               cards.add(new Card(a,b) );
-             }
-        }
-	    int size;       
-
-        for (int i=0; i<100; i++)
-        {
-            index_1 = generator.nextInt( cards.size() - 1 );
-            index_2 = generator.nextInt( cards.size() - 1 );
-
-            temp = cards.get( index_2 );
-            cards.set( index_2 , cards.get( index_1 ) );
-            cards.set( index_1, temp );
-        }
-    }
-
+   
+   public Deck(int numberOfPacks,boolean withJoker)
+   {
+	   Set<Card> set=new HashSet<Card>();
+	   for(int i=0;i<numberOfPacks;i++)
+	   {
+		   Pack p=new Pack(withJoker);
+		   set.addAll(p.getPack());
+	   }
+	   cards=new ArrayList<Card>(set);
+	   shuffle();
+   }
+	
+   public void shuffle(){
+	 Collections.shuffle(this.cards); 
+   }
+     
+   public ArrayList<Card> makeDeck(int x)
+   {       
+	   deck=new ArrayList<Card>();
+       for(int i=0;i<x;i++)
+       {
+       	deck.add(cards.get(i));
+       }
+       return deck;
+       
+   }
+   
     public Card drawFromDeck()
     {       
         return deck.remove( 0 );
@@ -41,8 +48,9 @@ public class Deck {
         //we could use this method when making 
         //a complete poker game to see if we needed a new deck
     }
+    
     public static void printDeck(){
-    	for(Card c:cards){
+    	for(Card c:deck){
     		System.out.println(c);
     	}
     }
