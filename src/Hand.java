@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import javax.swing.text.html.HTMLDocument.Iterator;
@@ -15,16 +16,16 @@ public class Hand {
 			d.printDeck();
 			pokerEvaluate(inHand);
 		}
-//		if (ch == 2) {
-//			inHand = d.makeDeck(13);
-//			d.printDeck();
-//			// rummyEvaluate(inHand);
-//		}
-//		if (ch == 3) {
-//			inHand = d.makeDeck(13);
-//			d.printDeck();
-//			// heartEvaluate(inHand);
-//		}
+		//		if (ch == 2) {
+		//			inHand = d.makeDeck(13);
+		//			d.printDeck();
+		//			// rummyEvaluate(inHand);
+		//		}
+		//		if (ch == 3) {
+		//			inHand = d.makeDeck(13);
+		//			d.printDeck();
+		//			// heartEvaluate(inHand);
+		//		}
 	}
 
 	public static void pokerEvaluate(ArrayList<Card> deck) {
@@ -124,11 +125,27 @@ public class Hand {
 
 		Play(ch, d);
 
-		// System.out.println("\nSorting by Rank...");
-		// ArrayList<Card> c=d.getDeck();
-		// Collections.sort(c,new rankComparator());
-		// d.printDeck();
-		//
+//		System.out.println("\nSorting by Rank...");
+//		ArrayList<Card> c=d.getDeck();
+//		c.sort(new Comparator<Card>(){
+//
+//			@Override
+//			public int compare(Card o1, Card o2) {
+//				// TODO Auto-generated method stub
+//				Card c1=(Card) o1;
+//				Card c2=(Card) o2;
+//				if(c1.getRankIndex()==c2.getRankIndex())
+//					return 0;
+//				else if(c1.getRankIndex() > c2.getRankIndex())
+//					return 1;
+//				else
+//					return -1;
+//
+//			}
+//
+//		});
+//		d.printDeck();
+
 		// System.out.println("\nSorting by Suit..");
 		// ArrayList<Card> c1=d.getDeck();
 		// Collections.sort(c1,new suitComparator());

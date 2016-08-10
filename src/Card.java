@@ -18,7 +18,7 @@ public class Card{
     }
    public String toString(){
 	   if(this.getRankIndex()!=13)
-		return this.rank+" Of "+this.suit;
+		return this.rank+" "+this.suit;
 	   else
 		 return this.suit;	
    }
