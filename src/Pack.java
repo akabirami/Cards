@@ -4,7 +4,7 @@ public class Pack {
 
 	public ArrayList<Card> cards;
 	
-	public Pack(boolean withJoker){
+	public Pack(int joker){
 		cards = new ArrayList<Card>();
 		
 		for (int a=0; a<4; a++)
@@ -14,9 +14,10 @@ public class Pack {
                cards.add(new Card(a,b) );
              }
         }
-	    if(withJoker){
+		int i=0;
+	    while(i<joker){
 	    	cards.add(new Card(4,13));
-	    	cards.add(new Card(4,13));
+	    	i++;
 	    }
 	}
 	

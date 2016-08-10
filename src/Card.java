@@ -1,5 +1,7 @@
 public class Card{
-    private String rank, suit;
+    String rank;
+
+	String suit;
 
     private static String[] suits = { "hearts", "spades", "diamonds", "clubs","joker" };
     private static String[] ranks  = { "Ace", "2", "3", "4", "5", "6", "7", 

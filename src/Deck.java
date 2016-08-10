@@ -10,12 +10,12 @@ public class Deck {
    private static ArrayList<Card> deck;
 
    
-   public Deck(int numberOfPacks,boolean withJoker)
+   public Deck(int numberOfPacks,int joker)
    {
 	   Set<Card> set=new HashSet<Card>();
 	   for(int i=0;i<numberOfPacks;i++)
 	   {
-		   Pack p=new Pack(withJoker);
+		   Pack p=new Pack(joker);
 		   set.addAll(p.getPack());
 	   }
 	   cards=new ArrayList<Card>(set);
@@ -24,6 +24,18 @@ public class Deck {
 	
    public void shuffle(){
 	 Collections.shuffle(this.cards); 
+//	 cards.get(0).rank="Ace";
+//	 cards.get(0).suit="hearts";
+//	 cards.get(1).rank="Queen";
+//	 cards.get(1).suit="hearts";
+//	 cards.get(2).rank="King";
+//	 cards.get(2).suit="hearts";
+//	 cards.get(3).rank="Jack";
+//	 cards.get(3).suit="hearts";
+//	 cards.get(4).rank="10";
+//	 cards.get(4).suit="hearts";
+
+	 
    }
      
    public ArrayList<Card> makeDeck(int x)
@@ -37,6 +49,10 @@ public class Deck {
        
    }
    
+   public ArrayList<Card> getDeck(){
+	   return deck;
+   }
+   
     public Card drawFromDeck()
     {       
         return deck.remove( 0 );
@@ -48,6 +64,8 @@ public class Deck {
         //we could use this method when making 
         //a complete poker game to see if we needed a new deck
     }
+    
+    
     
     public static void printDeck(){
     	for(Card c:deck){
